@@ -179,7 +179,7 @@ papersadd nowTime = do
             td_ $ input_ [type_ "text", name_ "author"]
           tr_ $ do
             td_ $ label_ "Publication Date"
-            td_ $ input_ [type_ "text", name_ "pubdate", value_ (pack . show $ nowTime)]
+            td_ $ input_ [type_ "date", name_ "pubdate", value_ (pack . show $ nowTime)]
           tr_ $ do
             td_ $ label_ "PDF of file"
             td_ $ input_ [type_ "file", name_ "uploadedfile"]
