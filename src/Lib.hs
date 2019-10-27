@@ -163,6 +163,7 @@ pageTemplate title content = do
 
 papersadd :: Monad m => Day -> HtmlT m ()
 papersadd nowTime = do
+  h1_ [class_ "page-title"] "Add a paper"
   form_ [action_ "/paper", method_ "post", enctype_ "multipart/form-data"] $
       do
         table_ $ do
@@ -182,6 +183,7 @@ papersadd nowTime = do
             td_ $ label_ "PDF of file"
             td_ $ input_ [type_ "file", name_ "uploadedfile"]
           tr_ $ do
+            td_ $ span_ ""
             td_ $ input_ [type_ "submit"]
 
 authform :: Monad m => HtmlT m ()
@@ -200,18 +202,21 @@ authform = do
   p_ ""
   code_ "git config --global user.email \"mona@davinci.com\""
 
-
 notespush :: Monad m => HtmlT m ()
-notespush = a_ [href_ "/gitpush"] "Push notes to GitHub"
+notespush = a_ [href_ "/gitpush", class_ "git gitpush"] "Push notes to GitHub"
 
 friendspull :: Monad m => HtmlT m ()
-friendspull = a_ [href_ "/gitpull"] "Pull friends' notes from GitHub"
+friendspull = a_ [href_ "/gitpull", class_ "git gitpull"] "Pull friends' notes from GitHub"
 
 paperstable :: Monad m => [Paper] -> HtmlT m ()
 paperstable rows =
-  table_ $ do
-    tr_ $
-      th_ "Rows"
+  table_ [class_ "paperlist"] $ do
+    thead_ $
+      tr_ $ do
+        th_ "Paper Title"
+        th_ "Pub Date"
+        th_ "DOI"
+        th_ "Authors"
     sequence_ $ onepaper <$> rows
 
 onepaper :: Monad m => Paper -> HtmlT m ()
