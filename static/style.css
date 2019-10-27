@@ -1,10 +1,12 @@
-body {
-    background-color: ;
-}
 h1 {
-    font-size: 2rem;
-    margin: 0.7em 0 0;
-    padding: 0.2em 1em 0.3em;
+    color: #06144E;
+    font-family: "Times New Roman", serif;
+    margin: 0.1em 0.5em;
+    text-shadow: 1px 1px #bfbfbf;
+}
+h2 {
+    margin: 0.3em 0 0;
+    padding: 0.1em 1em 0.3em;
     background-color: #e54b04;
     color: white;
 }
@@ -49,7 +51,7 @@ form input[type=submit] {
     margin: 0.5em 0 1.2em;
 }
 
-/* Git push/pull */
+/* Buttons */
 .git {
     margin-left: 1em;
     padding: 10px 15px;
@@ -64,7 +66,6 @@ a.git:hover {
     text-decoration: none;
 }
 a.git:active {
-    color: #e54b04;
     background-color: #007bff;
     position: relative;
     top: 4px;

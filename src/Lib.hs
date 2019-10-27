@@ -163,7 +163,8 @@ pageTemplate title content = do
 
 papersadd :: Monad m => Day -> HtmlT m ()
 papersadd nowTime = do
-  h1_ [class_ "page-title"] "Add a paper"
+  h1_ [class_ "site-title"] "Fermat's Last Margin"
+  h2_ [class_ "page-title"] "Add a paper"
   form_ [action_ "/paper", method_ "post", enctype_ "multipart/form-data"] $
       do
         table_ $ do
